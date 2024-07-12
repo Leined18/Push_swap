@@ -6,7 +6,7 @@
 #    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 16:56:35 by danpalac          #+#    #+#              #
-#    Updated: 2024/07/09 11:49:14 by danpalac         ###   ########.fr        #
+#    Updated: 2024/07/12 12:15:09 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,6 @@ all: $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile
 	@$(MKDIR) $(dir $@)
-	@echo "$(BLUE) Compiling libft  ➟  $(CYAN)[$<]$(WHITE)"
 	@$(CC) $(CFLAGS) -I$(INCLUDES) -MMD -MP -c $< -o $@
 
 $(NAME) : $(OBJS)
