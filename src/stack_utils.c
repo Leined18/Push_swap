@@ -1,13 +1,17 @@
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stack_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/12 13:12:28 by danpalac          #+#    #+#             */
+/*   Updated: 2024/07/12 13:12:29 by danpalac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-void	ft_swap(int *a, int *b)
-{
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
 
 void	ft_add_back(t_stack **stack, t_stack *new_node)
 {
@@ -53,10 +57,10 @@ t_stack	*ft_new(int num)
 
 void	ft_load_stack(int argc, char **argv, t_stack **stack)
 {
-	int		i;
-	int		j;
-	int		num;
-	char	*token;
+	int i;
+	int j;
+	int num;
+	char *token;
 
 	i = 1;
 	while (i < argc)
@@ -68,7 +72,7 @@ void	ft_load_stack(int argc, char **argv, t_stack **stack)
 			while (token[j])
 			{
 				if (!ft_isdigit(token[j]))
-					ft_error("is not digit");
+					ft_error("is not digit", 2);
 				j++;
 			}
 			num = atoi(token);
@@ -77,27 +81,4 @@ void	ft_load_stack(int argc, char **argv, t_stack **stack)
 		}
 		i++;
 	}
-}
-
-int	main(int argc, char **argv)
-{
-	t_stack	*A;
-	t_stack	*current;
-	t_stack	*temp;
-
-	A = NULL;
-	ft_load_stack(argc, argv, &A);
-	current = A;
-	while (current)
-	{
-		printf("A: %d\n", current->num);
-		current = current->next;
-	}
-	while (A)
-	{
-		temp = A;
-		A = A->next;
-		free(temp);
-	}
-	return (0);
 }
