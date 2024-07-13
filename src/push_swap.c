@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 		ft_error("", 1);
 	A = NULL;
 	ft_load_stack(ac, av, &A);
-	printList(A);
+	print_stack(A);
 	free_stack(A);
 	return (0);
 }

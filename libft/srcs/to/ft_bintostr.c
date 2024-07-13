@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:41:56 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/09 11:41:57 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/13 17:38:42 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +14,9 @@
 
 void	ft_bintostr(const char *bin, char *str)
 {
-	size_t bin_len;
-	size_t i;
-	size_t j;
+	size_t	bin_len;
+	size_t	i;
+	size_t	j;
 
 	if (!bin || !str)
 		return ;

@@ -1,5 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtok.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/13 17:27:44 by danpalac          #+#    #+#             */
+/*   Updated: 2024/07/13 17:35:31 by danpalac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*find_start(char *str, const char *delim)
+{
+	while (*str && ft_strchr(delim, *str))
+		str++;
+	if (*str == '\0')
+		return (NULL);
+	return (str);
+}
+
+static char	*find_end(char *str, const char *delim)
+{
+	while (*str && !ft_strchr(delim, *str))
+		str++;
+	return (str);
+}
 
 char	*ft_strtok(char *str, const char *delim)
 {
@@ -11,17 +38,13 @@ char	*ft_strtok(char *str, const char *delim)
 		static_str = str;
 	if (!static_str)
 		return (NULL);
-	start = static_str;
-	while (*start && ft_strchr(delim, *start))
-		start++;
-	if (!*start)
+	start = find_start(static_str, delim);
+	if (!start)
 	{
 		static_str = NULL;
 		return (NULL);
 	}
-	end = start;
-	while (*end && !ft_strchr(delim, *end))
-		end++;
+	end = find_end(start, delim);
 	if (*end)
 	{
 		*end = '\0';
