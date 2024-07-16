@@ -5,7 +5,7 @@
 
 typedef struct s_node
 {
-	int				num;
+	long			num;
 	int				index;
 	struct s_node	*next;
 	struct s_node	*prev;

@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap", // Ruta al ejecutable
-            "args": ["1", "2", "3", "4", "5"], // Argumentos para el programa
+            "args": ["1", "2", "-1", "4", "5"], // Argumentos para el programa
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

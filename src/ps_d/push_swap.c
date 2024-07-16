@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:54:12 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/16 14:50:08 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:21:30 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,31 +40,32 @@ void	print_stack(t_stack *a, t_stack *b)
 	}
 	ft_printf("\n");
 }
+
 void	check_duplicates(int argc, char **argv)
 {
 	int		i;
+	char	*arg;
 	char	*token;
 	long	num;
-	bool	seen[10000] = {false};
+	bool	seen[20001] = {false};
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (++i < argc)
 	{
-		token = argv[i];
-		while (*token != '\0')
+		arg = argv[i];
+		token = strtok(arg, " ");
+		while (token != NULL)
 		{
 			num = ft_atol(token);
 			if (*token != '\0' && num == 0)
-				ft_error("Error: Argumento no válido", 2);
+				ft_error("Error: Invalid Argument", 2);
+			if (num < 0)
+				num += 10000;
 			if (seen[num])
-				ft_error("Error: Número duplicado", 2);
+				ft_error("Error: Duplicated Number", 2);
 			seen[num] = true;
-			while (*token >= '0' && *token <= '9')
-				token++;
-			if (*token != '\0')
-				token++;
+			token = strtok(NULL, " ");
 		}
-		i++;
 	}
 }
 
@@ -79,8 +80,6 @@ int	main(int ac, char **av)
 	ft_load_stack(&a, ac, av);
 	ft_stack_zero(&b, ac);
 	printf("Pila antes de ordenar:\n");
-	print_stack(a, b);
-	sa(a);
 	print_stack(a, b);
 	ft_printf("size a %d , b %d\n", a->size, b->size);
 	free_stack(a, a->size);
