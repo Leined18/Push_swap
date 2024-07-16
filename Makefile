@@ -6,7 +6,7 @@
 #    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/13 17:21:31 by danpalac          #+#    #+#              #
-#    Updated: 2024/07/15 01:09:32 by danpalac         ###   ########.fr        #
+#    Updated: 2024/07/16 11:59:15 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,12 +48,16 @@ LIBFT	= $(LIBFT_DIR)libft.a
 
 CC		= gcc
 CFLAGS	= -Wextra -Werror -Wall -g3 -fsanitize=address
-LDFLAGS	= -L$(LIBFT_DIR) -lft -lm
+LDFLAGS	= -L$(LIBFT_DIR) -lft -lm -fsanitize=address
 MKDIR	= mkdir -p
 IFLAGS	= -I$(INC) -I$(LIBFT_INC) 
 
 #==============================DIRECTORIES============================================#
 
+ALGOR_DIR		:= algor_d/
+STACK_DIR		:= stack_d/
+PS_DIR			:= ps_d/
+OP_DIR			:= op_d/
 SRCS_DIR		:= src/
 OBJS_DIR		:= obj/
 LIBFT_DIR		:= libft/
@@ -62,15 +66,22 @@ INC				:= inc/
 
 #==============================SOURCES============================================#
 
-FILES := push_swap stack_utils ksort ksort_utils
+PS_FILES	:= push_swap
+OP_FILES	:= push_swap_utils1 push_swap_utils2 push_swap_utils3
+ALGOR_FILES	:= ksort
+STACK_FILES	:= stack_utils1 stack_utils2
+
 
 # ==============================FILES============================================#
 
-SRCS_FILES += $(FILES)
+SRCS_FILES +=$(addprefix $(PS_DIR), $(PS_FILES))
+SRCS_FILES +=$(addprefix $(OP_DIR), $(OP_FILES))
+SRCS_FILES +=$(addprefix $(ALGOR_DIR), $(ALGOR_FILES))
+SRCS_FILES +=$(addprefix $(STACK_DIR), $(STACK_FILES))
 
-SRCS		:= $(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRCS_FILES)))
-OBJS		:= $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS_FILES)))
-DEPS		:= $(addprefix $(OBJS_DIR), $(addsuffix .d, $(SRCS_FILES)))
+SRCS	:= $(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRCS_FILES)))
+OBJS	:= $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS_FILES)))
+DEPS	:= $(addprefix $(OBJS_DIR), $(addsuffix .d, $(SRCS_FILES)))
 
 #==============================RULES=============================================#
 
@@ -83,7 +94,7 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c Makefile
 	@$(CC) $(CFLAGS) $(IFLAGS) -MP -MMD -c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJS)
-	@$(CC) $(CFLAGS) $(IFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 	@echo "\n$(GREEN)$(NAME)✓ compiled!$(DEF_COLOR)"
 	@echo "$(BOLD_CYAN)\n------------\n| Done! 👌 |\n------------$(DEF_COLOR)"
 
@@ -92,10 +103,11 @@ $(LIBFT):
 
 clean:
 	@$(RM) -rf $(OBJS_DIR)
-	@make fclean -sC $(LIBFT_DIR)
+	@make clean -sC $(LIBFT_DIR)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@$(RM) -rf $(NAME)
+	@make fclean -sC $(LIBFT_DIR)
 	@echo "$(GREEN)$(NAME) $(YELLOW) cleaned$(DEF_COLOR)"
 
 re: fclean all

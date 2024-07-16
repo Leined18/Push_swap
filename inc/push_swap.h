@@ -18,14 +18,29 @@ typedef struct s_stack
 	int				size;
 }					t_stack;
 
+// operations
+
+void				sa(t_stack *a);
+void				sb(t_stack *b);
+void				ss(t_stack *a, t_stack *b);
+void				pa(t_stack *a, t_stack *b);
+void				pb(t_stack *a, t_stack *b);
+
+void				ra(t_stack *a);
+void				rb(t_stack *b);
+void				rr(t_stack *a, t_stack *b);
+void				rra(t_stack *a);
+void				rrb(t_stack *b);
+void				rrr(t_stack *a, t_stack *b);
+void				ft_swap(int *a, int *b);
+
+// stack utils
+
 t_stack				*ft_new(int num);
 void				ft_add_back(t_stack **stack, t_stack *new_node);
 void				ft_add_front(t_stack **stack, t_stack *new_node);
-void				ft_load_stack(int argc, char **argv, t_stack **stack);
-void				ft_swap(int *a, int *b);
-void				free_stack(t_stack *A);
-void				push(t_stack **stack, int num, int index);
-void				splitStack(t_stack *stack, t_stack **left, t_stack **right);
-t_stack				*mergeStacks(t_stack *left, t_stack *right, int k);
-void				mergeSortKSorted(t_stack **stack, int k);
+void				ft_load_stack(t_stack **stack, int argc, char **argv);
+void				ft_stack_zero(t_stack **stack, int argc);
+void				free_stack(t_stack *A, int size);
+
 #endif

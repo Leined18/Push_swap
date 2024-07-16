@@ -13,7 +13,7 @@ void	print_stack(t_stack *stack)
 	ft_printf("Pila: ");
 	while (current != NULL)
 	{
-		ft_printf("(%d,%d) ", current->num, current->index);
+		ft_printf("(%d) ", current->num);
 		current = current->next;
 	}
 	ft_printf("\n");
@@ -21,19 +21,19 @@ void	print_stack(t_stack *stack)
 
 int	main(int ac, char **av)
 {
-	t_stack	*A;
-	int		k;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (ac == 1)
 		ft_error("", 1);
-	A = NULL;
-	k = 2;
-	ft_load_stack(ac, av, &A);
+	ft_load_stack(&a, ac, av);
+	ft_stack_zero(&b, ac);
 	printf("Pila antes de ordenar:\n");
-	print_stack(A);
-	mergeSortKSorted(&A, k);
-	printf("\nPila ordenada:\n");
-	print_stack(A);
-	free_stack(A);
+	print_stack(a);
+	print_stack(b);
+	ft_printf("size a %d , b %d\n", a->size, b->size);
+	free_stack(a, a->size);
+	free_stack(b, b->size);
+	ft_successful("liberada");
 	return (0);
 }

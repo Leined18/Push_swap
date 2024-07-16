@@ -13,23 +13,27 @@
 
 #include "push_swap.h"
 
-void	free_stack(t_stack *A)
+void	free_stack(t_stack *A, int size)
 {
 	t_node	*current;
-	t_node	*next;
+	t_node	*prev;
+	int		i;
 
-	if (A == NULL)
+	if (A == NULL || size <= 0)
 		return ;
-	current = A->head;
-	while (current != NULL)
+	current = A->tail;
+	i = size;
+	while (i >= 0 && current != NULL)
 	{
-		next = current->next;
+		prev = current->prev;
 		free(current);
-		current = next;
+		current = prev;
+		i--;
 	}
 	A->head = NULL;
 	A->tail = NULL;
 	A->size = 0;
+	free(A);
 }
 
 void	ft_add_back(t_stack **stack, t_stack *new_stack)
@@ -89,15 +93,16 @@ t_stack	*ft_new(int num)
 	t_node	*new_node;
 
 	new_stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!new_stack)
+		return (NULL);
 	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_stack || !new_node)
+	if (!new_node)
 	{
 		free(new_stack);
-		free(new_node);
 		return (NULL);
 	}
 	new_node->num = num;
-	new_node->index = -1;
+	new_node->index = 0;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	new_stack->head = new_node;
@@ -106,7 +111,7 @@ t_stack	*ft_new(int num)
 	return (new_stack);
 }
 
-void	ft_load_stack(int argc, char **argv, t_stack **stack)
+void	ft_load_stack(t_stack **stack, int argc, char **argv)
 {
 	int		i;
 	int		j;
@@ -114,6 +119,7 @@ void	ft_load_stack(int argc, char **argv, t_stack **stack)
 	char	*token;
 
 	i = 1;
+	*stack = NULL;
 	while (i < argc)
 	{
 		token = ft_strtok(argv[i], " ");
