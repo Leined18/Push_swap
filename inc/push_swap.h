@@ -41,6 +41,6 @@ void				ft_add_back(t_stack **stack, t_stack *new_node);
 void				ft_add_front(t_stack **stack, t_stack *new_node);
 void				ft_load_stack(t_stack **stack, int argc, char **argv);
 void				ft_stack_zero(t_stack **stack, int argc);
-void				free_stack(t_stack *A, int size);
+void				free_stacks(t_stack *a, int size);
 
 #endif

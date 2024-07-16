@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:54:12 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/16 15:21:30 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:56:18 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	print_stack(t_stack *a, t_stack *b)
 			current = current->next;
 		}
 	}
-	ft_printf("\n");
+	ft_printf("\n\n");
 }
 
 void	check_duplicates(int argc, char **argv)
@@ -78,12 +78,13 @@ int	main(int ac, char **av)
 		ft_error("", 1);
 	check_duplicates(ac, av);
 	ft_load_stack(&a, ac, av);
-	ft_stack_zero(&b, ac);
+	b = ft_calloc(1, sizeof(t_stack));
 	printf("Pila antes de ordenar:\n");
 	print_stack(a, b);
-	ft_printf("size a %d , b %d\n", a->size, b->size);
-	free_stack(a, a->size);
-	free_stack(b, b->size);
+	print_stack(a, b);
+	ft_printf("size a: %d\n", a->size);
+	free_stacks(a, a->size);
+	free_stacks(b, b->size);
 	ft_successful("liberada");
 	return (0);
 }

@@ -13,15 +13,15 @@
 
 #include "push_swap.h"
 
-void	free_stack(t_stack *A, int size)
+void	free_stacks(t_stack *a, int size)
 {
 	t_node	*current;
 	t_node	*prev;
 	int		i;
 
-	if (A == NULL || size <= 0)
+	if (a == NULL || size <= 0)
 		return ;
-	current = A->tail;
+	current = a->tail;
 	i = size;
 	while (i >= 0 && current != NULL)
 	{
@@ -30,10 +30,10 @@ void	free_stack(t_stack *A, int size)
 		current = prev;
 		i--;
 	}
-	A->head = NULL;
-	A->tail = NULL;
-	A->size = 0;
-	free(A);
+	a->head = NULL;
+	a->tail = NULL;
+	a->size = 0;
+	free(a);
 }
 
 void	ft_add_back(t_stack **stack, t_stack *new_stack)
