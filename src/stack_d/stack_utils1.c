@@ -13,13 +13,13 @@
 
 #include "push_swap.h"
 
-void	free_stacks(t_stack *a, int size)
+void	free_stacks(t_stack *a, t_stack *b, int size)
 {
 	t_node	*current;
 	t_node	*prev;
 	int		i;
 
-	if (a == NULL || size <= 0)
+	if (a == NULL)
 		return ;
 	current = a->tail;
 	i = size;
@@ -34,6 +34,8 @@ void	free_stacks(t_stack *a, int size)
 	a->tail = NULL;
 	a->size = 0;
 	free(a);
+	if (b)
+		free(b);
 }
 
 void	ft_add_back(t_stack **stack, t_stack *new_stack)
@@ -128,7 +130,7 @@ void	ft_load_stack(t_stack **stack, int argc, char **argv)
 			j = 0;
 			while (token[j])
 			{
-				if (!ft_isdigit(token[j]))
+				if (!ft_isdigit(token[j]) && token[j] != '-')
 					ft_error("is not digit", 2);
 				j++;
 			}

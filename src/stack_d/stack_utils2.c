@@ -5,22 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 11:52:46 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/16 12:49:12 by danpalac         ###   ########.fr       */
+/*   Created: 2024/07/17 20:46:54 by danpalac          #+#    #+#             */
+/*   Updated: 2024/07/17 20:47:19 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_stack_zero(t_stack **stack, int argc)
+void	print_stack(t_stack *a, t_stack *b)
 {
-	int i;
+	t_node *current;
 
-	i = 1;
-	*stack = NULL;
-	while (i < argc)
+	if (a)
 	{
-		ft_add_back(stack, ft_new(0));
-		i++;
+		ft_printf("Pila a: ");
+		current = a->head;
+		while (current != NULL)
+		{
+			ft_printf("[ %d ] ", current->num);
+			current = current->next;
+		}
 	}
+	ft_printf("\n");
+	current = NULL;
+	if (b)
+	{
+		ft_printf("Pila b: ");
+		current = b->head;
+		while (current != NULL)
+		{
+			ft_printf("[ %d ] ", current->num);
+			current = current->next;
+		}
+	}
+	ft_printf("\n\n");
 }

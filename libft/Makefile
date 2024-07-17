@@ -6,7 +6,7 @@
 #    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 16:56:35 by danpalac          #+#    #+#              #
-#    Updated: 2024/07/16 14:45:09 by danpalac         ###   ########.fr        #
+#    Updated: 2024/07/17 20:56:17 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,11 +110,10 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile
 
 $(NAME) : $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
-	@echo "$(GREEN)\n ✓ Compiled $(NAME)\n$(WHITE)"
+	@echo "$(GREEN)\n ✓ $(NAME) Compiled \n$(WHITE)"
 
 clean : 
 	@$(RM) -rf $(OBJ_DIR) a.out
-	@echo "$(RED)\n ✗ Files object libft erased.‼️\n$(WHITE)";
 
 fclean : clean
 	@$(RM) -f $(NAME)

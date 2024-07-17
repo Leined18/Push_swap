@@ -61,6 +61,8 @@
     "unistd.h": "c",
     "get_next_line.h": "c",
     "limits.h": "c",
-    "libft.h": "c"
+    "libft.h": "c",
+    "push_swap": "c",
+    "random": "c"
   }
 }
