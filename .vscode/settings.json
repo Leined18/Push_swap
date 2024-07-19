@@ -63,6 +63,19 @@
     "limits.h": "c",
     "libft.h": "c",
     "push_swap": "c",
-    "random": "c"
+    "random": "c",
+    "string_view": "c",
+    "array": "c",
+    "*.tcc": "c",
+    "string": "c",
+    "unordered_map": "c",
+    "memory": "c",
+    "ostream": "c",
+    "streambuf": "c",
+    "functional": "c",
+    "tuple": "c",
+    "algorithm": "c",
+    "initializer_list": "c",
+    "utility": "c"
   }
 }

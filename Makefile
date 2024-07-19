@@ -6,7 +6,7 @@
 #    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/13 17:21:31 by danpalac          #+#    #+#              #
-#    Updated: 2024/07/17 20:56:06 by danpalac         ###   ########.fr        #
+#    Updated: 2024/07/19 11:36:27 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ INC				:= inc/
 
 PS_FILES	:= push_swap check
 OP_FILES	:= op1 op2
-SORT_FILES	:= ksort sort
+SORT_FILES	:= ksort sort sort_utils
 STACK_FILES	:= stack_utils1 stack_utils2
 
 

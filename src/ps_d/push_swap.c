@@ -6,25 +6,62 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:54:12 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/17 21:04:21 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:51:07 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	init(t_stack *a, t_stack *b, int *nb, int c)
+{
+	t_node	*tmp;
+
+	b->head = NULL;
+	b->size = 0;
+	ins_sort(nb, c);
+	tmp = a->head;
+	while (tmp)
+	{
+		tmp->index = ft_index(tmp->data, nb);
+		tmp = tmp->next;
+	}
+}
+
+int	*get_num(t_stack *a, int size)
+{
+	t_node	*current;
+	int		*n;
+	int		i;
+
+	n = (int *)ft_calloc(sizeof(int), size);
+	if (!n)
+		return (NULL);
+	i = 0;
+	current = a->head;
+	while (current && i <= size)
+	{
+		n[i++] = current->data;
+		current = current->next;
+	}
+	return (n);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
-	t_stack	*b;
+	t_stack	b;
+	int		*num;
 
 	if (ac == 1)
 		ft_error("", 1);
 	check(ac, av);
 	ft_load_stack(&a, ac, av);
-	b = NULL;
-	b = ft_calloc(1, sizeof(t_stack));
-	sort(a, b, a->size);
+	print_stack(a, NULL);
+	num = get_num(a, a->size);
+	init(a, &b, num, a->size);
+	sort(a, &b, num, a->size);
 	ft_printf("size a: %d\n", a->size);
-	free_stacks(a, b, a->size);
+	free(num);
+	free_stacks(a, &b);
 	return (0);
 }

@@ -13,29 +13,12 @@
 
 #include "push_swap.h"
 
-void	free_stacks(t_stack *a, t_stack *b, int size)
+void	free_stacks(t_stack *a, t_stack *b)
 {
-	t_node	*current;
-	t_node	*prev;
-	int		i;
-
-	if (a == NULL)
-		return ;
-	current = a->tail;
-	i = size;
-	while (i >= 0 && current != NULL)
-	{
-		prev = current->prev;
-		free(current);
-		current = prev;
-		i--;
-	}
-	a->head = NULL;
-	a->tail = NULL;
-	a->size = 0;
-	free(a);
-	if (b)
-		free(b);
+	while (a)
+		del_stack(a);
+	while (b)
+		del_stack(b);
 }
 
 void	ft_add_back(t_stack **stack, t_stack *new_stack)
@@ -91,8 +74,8 @@ void	ft_add_front(t_stack **stack, t_stack *new_stack)
 
 t_stack	*ft_new(int num)
 {
-	t_stack	*new_stack;
-	t_node	*new_node;
+	t_stack		*new_stack;
+	t_node		*new_node;
 
 	new_stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_stack)
@@ -103,7 +86,7 @@ t_stack	*ft_new(int num)
 		free(new_stack);
 		return (NULL);
 	}
-	new_node->num = num;
+	new_node->data = num;
 	new_node->index = 0;
 	new_node->next = NULL;
 	new_node->prev = NULL;
