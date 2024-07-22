@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:43:02 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/19 12:28:33 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:38:09 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,17 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 
 /* ************************************************************************** */
+/*                                 MATHS                                      */
+/* ************************************************************************** */
+
+int					ft_sqrt(int number);
+void				ins_sort(int array[], int n);
+int					ft_index(int n, int *arr);
+
+/* ************************************************************************** */
 /*                                 STRING                                     */
 /* ************************************************************************** */
 
-void				ins_sort(int array[], int n);
-int					ft_index(int n, int *arr);
 void				ft_strrev(char *str);
 char				*ft_strtok(char *str, const char *delim);
 char				**ft_split(char const *s, char c);

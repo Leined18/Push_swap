@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:03:17 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/19 13:10:55 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/19 13:14:12 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,5 @@ void	sort(t_stack *a, t_stack *b, int *num, int length)
 		insert_sort(a, b, length);
 	else
 		ft_error("", 2);
-
 	print_stack(a, b);
 }
