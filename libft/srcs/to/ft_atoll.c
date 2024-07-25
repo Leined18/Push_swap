@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 10:25:28 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 11:53:17 by danpalac         ###   ########.fr       */
+/*   Created: 2024/07/25 11:37:18 by danpalac          #+#    #+#             */
+/*   Updated: 2024/07/25 12:11:52 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_nbrlen(long n)
+int64_t	ft_atoll(const char *str)
 {
-	int	i;
+	size_t i;
+	int32_t sign;
+	int64_t out;
 
-	if (n < 0)
+	i = 0;
+	sign = 1;
+	out = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		n = ft_abs(n);
-		i = 1;
-	}
-	else
-		i = 0;
-	while (n >= 10)
-	{
-		n /= 10;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	return (i + 1);
-}
-
-int	ft_putnbr(int n)
-{
-	int	nbr_len;
-
-	nbr_len = ft_nbrlen(n);
-	ft_putnbr_fd(n, 1);
-	return (nbr_len);
+	while (ft_isdigit(str[i]))
+		out = (out * 10) + (str[i++] - '0');
+	if (str)
+		free((char *)str);
+	return (out * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:43:02 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/22 15:38:09 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/25 12:09:11 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ typedef struct s_list
 /*                                  CHECK                                     */
 /* ************************************************************************** */
 
+int					ft_isspace(int c);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
-int					ft_isspace(int c);
 
 /* ************************************************************************** */
 /*                                 MEMORY                                     */
@@ -74,6 +74,7 @@ void				ft_successful(char *success);
 /*                                  TO										*/
 /* ************************************************************************** */
 
+int64_t				ft_atoll(const char *str);
 void				ft_bintostr(const char *bin, char *str);
 void				ft_strtobin(const char *str, char *bin);
 void				ft_bintoa(const char *bin, char *ascii, size_t *j);
@@ -96,6 +97,7 @@ int					ft_index(int n, int *arr);
 /*                                 STRING                                     */
 /* ************************************************************************** */
 
+void				free_2d(char **arr);
 void				ft_strrev(char *str);
 char				*ft_strtok(char *str, const char *delim);
 char				**ft_split(char const *s, char c);

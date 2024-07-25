@@ -1,41 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 10:25:28 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 11:53:17 by danpalac         ###   ########.fr       */
+/*   Created: 2024/07/25 12:08:31 by danpalac          #+#    #+#             */
+/*   Updated: 2024/07/25 12:08:32 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_nbrlen(long n)
+int	ft_isspace(int c)
 {
-	int	i;
-
-	if (n < 0)
-	{
-		n = ft_abs(n);
-		i = 1;
-	}
-	else
-		i = 0;
-	while (n >= 10)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i + 1);
-}
-
-int	ft_putnbr(int n)
-{
-	int	nbr_len;
-
-	nbr_len = ft_nbrlen(n);
-	ft_putnbr_fd(n, 1);
-	return (nbr_len);
+	if ((c >= 9 && c <= 13) || c == ' ')
+		return (c);
+	return (0);
 }

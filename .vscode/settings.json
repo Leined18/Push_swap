@@ -76,6 +76,7 @@
     "tuple": "c",
     "algorithm": "c",
     "initializer_list": "c",
-    "utility": "c"
+    "utility": "c",
+    "ft_printf.h": "c"
   }
 }

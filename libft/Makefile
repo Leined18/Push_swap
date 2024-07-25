@@ -6,7 +6,7 @@
 #    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 16:56:35 by danpalac          #+#    #+#              #
-#    Updated: 2024/07/22 15:38:43 by danpalac         ###   ########.fr        #
+#    Updated: 2024/07/25 12:09:35 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,16 +42,16 @@ MKDIR 		:= mkdir -p
 #==========SOURCES============================================================#
 
 
-IS_FILES	:= ft_isalpha ft_isalnum ft_isascii ft_isdigit ft_isprint
+IS_FILES	:= ft_isalpha ft_isalnum ft_isspace ft_isascii ft_isdigit ft_isprint
 
 MEM_FILES	:= ft_bzero ft_calloc ft_memchr ft_memcmp ft_memcpy ft_memmove ft_memset\
 			   ft_memrev ft_memccpy ft_memdel
 			   
 PUT_FILES	:= ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd ft_error ft_successful
 
-TO_FILES	:= ft_atoi ft_itoa ft_tolower ft_toupper ft_bintoa ft_atobin ft_bintostr ft_strtobin ft_atol
+TO_FILES	:= ft_atoi ft_itoa ft_tolower ft_atoll ft_toupper ft_bintoa ft_atobin ft_bintostr ft_strtobin ft_atol
 
-STR_FILES	:= ft_split ft_strchr ft_strdup ft_striteri ft_strjoin ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp \
+STR_FILES	:= ft_split ft_strchr ft_strdup ft_free_2d ft_striteri ft_strjoin ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp \
 			ft_strnstr ft_strrchr ft_strtrim ft_strrev ft_substr ft_strrncmp ft_strtok
 
 LST_FILES	:= ft_lstnew_bonus ft_lstadd_front_bonus ft_lstsize_bonus ft_lstlast_bonus ft_lstadd_back_bonus \

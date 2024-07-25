@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:54:12 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/19 12:51:07 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/25 12:16:21 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,10 @@ int	main(int ac, char **av)
 		ft_error("", 1);
 	check(ac, av);
 	ft_load_stack(&a, ac, av);
-	print_stack(a, NULL);
 	num = get_num(a, a->size);
+	check_range(a, num);
 	init(a, &b, num, a->size);
 	sort(a, &b, num, a->size);
-	ft_printf("size a: %d\n", a->size);
 	free(num);
 	free_stacks(a, &b);
 	return (0);

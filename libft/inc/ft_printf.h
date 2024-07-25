@@ -6,21 +6,21 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:06:26 by danpalac          #+#    #+#             */
-/*   Updated: 2024/06/12 10:15:08 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/25 11:53:32 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "libft.h"
+# include <limits.h>
 # include <stdarg.h>
-# include <stdio.h>
-# include <unistd.h>
 # include <stddef.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include <limits.h>
-# include "libft.h"
+# include <unistd.h>
 
 int		ft_putnbr(int n);
 int		ft_putchar(int c);
@@ -31,5 +31,6 @@ int		ft_puthexa(unsigned long n, char format);
 int		ft_putstr(char const *s);
 int		ft_putunsigned(unsigned long n);
 int		ft_putaddress(void *format);
+int		ft_nbrlen(long n);
 
 #endif

@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_free2d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 10:25:28 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 11:53:17 by danpalac         ###   ########.fr       */
+/*   Created: 2024/07/25 11:30:44 by danpalac          #+#    #+#             */
+/*   Updated: 2024/07/25 11:31:12 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_nbrlen(long n)
+void	free_2d(char **arr)
 {
-	int	i;
+	size_t i;
 
-	if (n < 0)
+	i = 0;
+	if (arr)
 	{
-		n = ft_abs(n);
-		i = 1;
+		while (arr && arr[i])
+		{
+			if (arr[i] != NULL)
+			{
+				free(arr[i]);
+				arr[i] = NULL;
+			}
+			i++;
+		}
+		free(arr);
+		arr = NULL;
 	}
-	else
-		i = 0;
-	while (n >= 10)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i + 1);
-}
-
-int	ft_putnbr(int n)
-{
-	int	nbr_len;
-
-	nbr_len = ft_nbrlen(n);
-	ft_putnbr_fd(n, 1);
-	return (nbr_len);
 }

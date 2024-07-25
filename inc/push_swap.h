@@ -27,6 +27,11 @@ typedef struct s_stack
 int					count_r(t_node *stack, int index);
 int					get_min_index(t_stack *stack);
 
+// ksort
+
+void				k_sort1(t_stack *stack_a, t_stack *stack_b, int length);
+void				k_sort2(t_stack *stack_a, t_stack *stack_b, int length);
+
 // sort_d
 
 void				simple_sort(t_stack *stack, int length);
@@ -34,6 +39,7 @@ void				sort(t_stack *a, t_stack *b, int *num, int length);
 
 // checks
 
+void				check_range(t_stack *a, int *numbers);
 int					is_sorted(t_stack *stack);
 int					is_rot_sort(t_stack *stack, int min_s_index);
 void				check(int argc, char **argv);

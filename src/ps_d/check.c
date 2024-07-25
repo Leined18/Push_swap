@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/19 10:56:26 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/25 12:04:30 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,47 @@ int	is_rot_sort(t_stack *stack, int min_s_index)
 	if (c < a && a < b)
 		return (1);
 	return (0);
+}
+
+int	check_digits(int argc, char **argv)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 1;
+	count = 0;
+	while (i < argc)
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
+				&& argv[i][j] != '-')
+				return (-1);
+			if (ft_isdigit(argv[i][j]) && (argv[i][j + 1] == ' ' || argv[i][j
+					+ 1] == '\0'))
+				count += 1;
+			j++;
+		}
+		i++;
+	}
+	return (count);
+}
+
+void	check_range(t_stack *a, int *numbers)
+{
+	t_node	*c;
+
+	c = a->head;
+	while (c)
+	{
+		if (ft_atoll(ft_itoa(c->data)) > INT_MAX
+			|| ft_atoll(ft_itoa(c->data)) < INT_MIN || ft_nbrlen(c->data) > 11)
+		{
+			free(numbers);
+			ft_error("", 2);
+		}
+		c = c->next;
+	}
 }
