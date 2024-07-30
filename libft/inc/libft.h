@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:43:02 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 12:09:11 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:13:08 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 /*                                 STRUCT                                     */
 /* ************************************************************************** */
 
+typedef int			t_bool;
+# define TRUE 1
+# define FALSE 0
+
 typedef struct s_list
 {
 	void			*content;
@@ -37,6 +41,7 @@ typedef struct s_list
 /*                                  CHECK                                     */
 /* ************************************************************************** */
 
+void				isdupled(int n, char **arr);
 int					ft_isspace(int c);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -63,6 +68,7 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 /*                                  PUT										*/
 /* ************************************************************************** */
 
+void				put2d(void **arr, char s, int c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
@@ -89,6 +95,7 @@ int					ft_toupper(int c);
 /*                                 MATHS                                      */
 /* ************************************************************************** */
 
+int					count_numbers(const char *str);
 int					ft_sqrt(int number);
 void				ins_sort(int array[], int n);
 int					ft_index(int n, int *arr);

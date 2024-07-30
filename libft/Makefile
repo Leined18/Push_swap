@@ -6,7 +6,7 @@
 #    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 16:56:35 by danpalac          #+#    #+#              #
-#    Updated: 2024/07/25 12:09:35 by danpalac         ###   ########.fr        #
+#    Updated: 2024/07/30 15:13:27 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,12 +42,12 @@ MKDIR 		:= mkdir -p
 #==========SOURCES============================================================#
 
 
-IS_FILES	:= ft_isalpha ft_isalnum ft_isspace ft_isascii ft_isdigit ft_isprint
+IS_FILES	:= ft_isalpha ft_isalnum ft_isdupled ft_isspace ft_isascii ft_isdigit ft_isprint
 
 MEM_FILES	:= ft_bzero ft_calloc ft_memchr ft_memcmp ft_memcpy ft_memmove ft_memset\
 			   ft_memrev ft_memccpy ft_memdel
 			   
-PUT_FILES	:= ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd ft_error ft_successful
+PUT_FILES	:= ft_putchar_fd ft_putendl_fd ft_put2d ft_putnbr_fd ft_putstr_fd ft_error ft_successful
 
 TO_FILES	:= ft_atoi ft_itoa ft_tolower ft_atoll ft_toupper ft_bintoa ft_atobin ft_bintostr ft_strtobin ft_atol
 
@@ -61,7 +61,7 @@ PRINTF_FILES	:= ft_printf
 
 PRINTF_PUT_FILES := ft_putaddr ft_putbase_fd ft_putchar ft_puthexa ft_putnbr ft_putstr ft_putunsigned
 
-MATH_FILES	:= ft_abs ft_index ft_insort ft_sqrt
+MATH_FILES	:= ft_abs ft_index ft_insort ft_sqrt ft_cnum
 
 GET_FILES := get_next_line
 

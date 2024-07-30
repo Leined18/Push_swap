@@ -39,10 +39,11 @@ void				sort(t_stack *a, t_stack *b, int *num, int length);
 
 // checks
 
-void				check_range(t_stack *a, int *numbers);
+int					check_digits(int argc, char **argv);
+void				check_range(char **s_numbers, int *num);
 int					is_sorted(t_stack *stack);
 int					is_rot_sort(t_stack *stack, int min_s_index);
-void				check(int argc, char **argv);
+int					check(int argc, char **argv);
 
 // operations
 
@@ -59,9 +60,7 @@ void				reverse_rotate(t_stack *stack, char x, t_bool b);
 
 t_stack				*ft_new(int num);
 int					del_stack(t_stack *stack);
-void				ft_add_back(t_stack **stack, t_stack *new_node);
-void				ft_add_front(t_stack **stack, t_stack *new_node);
-void				ft_load_stack(t_stack **stack, int argc, char **argv);
+void				load_stack(t_stack *stack, int index, int data);
 void				free_stacks(t_stack *a, t_stack *b);
 void				print_stack(t_stack *a, t_stack *b);
 

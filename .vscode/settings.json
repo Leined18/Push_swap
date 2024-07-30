@@ -57,26 +57,7 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-    "push_swap.h": "c",
-    "unistd.h": "c",
-    "get_next_line.h": "c",
-    "limits.h": "c",
-    "libft.h": "c",
-    "push_swap": "c",
-    "random": "c",
-    "string_view": "c",
-    "array": "c",
-    "*.tcc": "c",
-    "string": "c",
-    "unordered_map": "c",
-    "memory": "c",
-    "ostream": "c",
-    "streambuf": "c",
-    "functional": "c",
-    "tuple": "c",
-    "algorithm": "c",
-    "initializer_list": "c",
-    "utility": "c",
-    "ft_printf.h": "c"
-  }
+	"libft.h": "c",
+	"push_swap.h": "c"
+}
 }

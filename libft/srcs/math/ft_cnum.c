@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoll.c                                         :+:      :+:    :+:   */
+/*   ft_cnum.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 11:37:18 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/30 14:22:16 by danpalac         ###   ########.fr       */
+/*   Created: 2024/07/30 15:12:52 by danpalac          #+#    #+#             */
+/*   Updated: 2024/07/30 15:17:36 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int64_t	ft_atoll(const char *str)
+int	count_numbers(const char *str)
 {
-	size_t i;
-	int32_t sign;
-	int64_t out;
+	int count = 0;
+	int in_number = 0;
 
-	i = 0;
-	sign = 1;
-	out = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (*str)
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
+		if (ft_isdigit(*str))
+		{
+			if (!in_number)
+			{
+				in_number = 1;
+				count++;
+			}
+		}
+		else
+			in_number = 0;
+		str++;
 	}
-	while (ft_isdigit(str[i]))
-		out = (out * 10) + (str[i++] - '0');
-	return (out * sign);
+	return (count);
 }

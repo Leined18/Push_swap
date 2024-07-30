@@ -6,39 +6,23 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 12:04:30 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:21:50 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check(int argc, char **argv)
+int	check(int argc, char **argv)
 {
-	int		i;
-	char	*arg;
-	char	*token;
-	long	num;
-	t_bool	seen[20001];
+	int	i;
 
-	i = 0;
-	*seen = false;
-	while (++i < argc)
-	{
-		arg = argv[i];
-		token = ft_strtok(arg, " ");
-		while (token != NULL)
-		{
-			num = ft_atol(token);
-			if (*token != '\0' && num == 0)
-				ft_error("", 2);
-			if (num < 0)
-				num += 10000;
-			if (seen[num])
-				ft_error("", 2);
-			seen[num] = true;
-			token = ft_strtok(NULL, " ");
-		}
-	}
+	isdupled(argc, argv);
+	if (argc == 2)
+	i = check_digits(argc, argv);
+	if (i < 1)
+		ft_error("", 1);
+	ft_printf("%d  ", i);
+	return (i);
 }
 
 int	is_sorted(t_stack *stack)
@@ -100,19 +84,20 @@ int	check_digits(int argc, char **argv)
 	return (count);
 }
 
-void	check_range(t_stack *a, int *numbers)
+void	check_range(char **s_numbers, int *num)
 {
-	t_node	*c;
+	int	i;
 
-	c = a->head;
-	while (c)
+	i = 0;
+	while (s_numbers[i])
 	{
-		if (ft_atoll(ft_itoa(c->data)) > INT_MAX
-			|| ft_atoll(ft_itoa(c->data)) < INT_MIN || ft_nbrlen(c->data) > 11)
+		if (ft_atoll(s_numbers[i]) > INT_MAX || ft_atoll(s_numbers[i]) < INT_MIN
+			|| ft_strlen(s_numbers[i]) > 11)
 		{
-			free(numbers);
-			ft_error("", 2);
+			free_2d(s_numbers);
+			free(num);
+			ft_error("", 1);
 		}
-		c = c->next;
+		i++;
 	}
 }
