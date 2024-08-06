@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:54:12 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 12:16:21 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:20:50 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int	*get_num(t_stack *a, int size)
 	n = (int *)ft_calloc(sizeof(int), size);
 	if (!n)
 		return (NULL);
-	i = 0;
+	i = -1;
 	current = a->head;
-	while (current && i <= size)
+	while (current && ++i <= size)
 	{
-		n[i++] = current->data;
+		n[i] = current->data;
 		current = current->next;
 	}
 	return (n);
