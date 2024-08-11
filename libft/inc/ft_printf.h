@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:06:26 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 11:53:32 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/11 21:52:18 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <string.h>
 # include <unistd.h>
 
+int		ft_nbrlen(long n);
 int		ft_putnbr(int n);
 int		ft_putchar(int c);
 int		ft_printf(const char *str, ...);
@@ -31,6 +32,5 @@ int		ft_puthexa(unsigned long n, char format);
 int		ft_putstr(char const *s);
 int		ft_putunsigned(unsigned long n);
 int		ft_putaddress(void *format);
-int		ft_nbrlen(long n);
 
 #endif

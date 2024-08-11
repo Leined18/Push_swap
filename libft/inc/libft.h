@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:43:02 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 12:09:11 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/11 22:43:41 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ft_printf.h"
 # include "get_next_line.h"
 # include <limits.h>
-# include <stdbool.h>
+# include <math.h>
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -26,6 +26,10 @@
 /* ************************************************************************** */
 /*                                 STRUCT                                     */
 /* ************************************************************************** */
+
+typedef int			t_bool;
+# define TRUE 1
+# define FALSE 0
 
 typedef struct s_list
 {
@@ -37,12 +41,12 @@ typedef struct s_list
 /*                                  CHECK                                     */
 /* ************************************************************************** */
 
-int					ft_isspace(int c);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
+int					ft_isspace(int c);
 
 /* ************************************************************************** */
 /*                                 MEMORY                                     */
@@ -60,6 +64,16 @@ void				ft_memdel(int arg, ...);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
 /* ************************************************************************** */
+/*                                  MATHS										*/
+/* ************************************************************************** */
+
+long				ft_fib(long n);
+long				ft_fact(long n);
+int					ft_index(int n, int *arr);
+void				ins_sort(int array[], int n);
+int					ft_sqrt(int number);
+
+/* ************************************************************************** */
 /*                                  PUT										*/
 /* ************************************************************************** */
 
@@ -67,37 +81,28 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
-void				ft_error(char *err, int fd);
+void				ft_error(char *err, t_bool yeet);
 void				ft_successful(char *success);
 
 /* ************************************************************************** */
 /*                                  TO										*/
 /* ************************************************************************** */
 
-int64_t				ft_atoll(const char *str);
-void				ft_bintostr(const char *bin, char *str);
-void				ft_strtobin(const char *str, char *bin);
-void				ft_bintoa(const char *bin, char *ascii, size_t *j);
-void				ft_atobin(unsigned char c, char *ret, size_t *j);
+char				*ft_bintostr(const char *bin);
+char				*ft_strtobin(const char *str);
+char				ft_bin2char(const char *bin);
+char				*ft_char2bin(unsigned char c);
 int					ft_atoi(char const *str);
 long				ft_atol(const char *str);
+int64_t				ft_atoll(const char *str);
 char				*ft_itoa(int n);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
 /* ************************************************************************** */
-/*                                 MATHS                                      */
-/* ************************************************************************** */
-
-int					ft_sqrt(int number);
-void				ins_sort(int array[], int n);
-int					ft_index(int n, int *arr);
-
-/* ************************************************************************** */
 /*                                 STRING                                     */
 /* ************************************************************************** */
 
-void				free_2d(char **arr);
 void				ft_strrev(char *str);
 char				*ft_strtok(char *str, const char *delim);
 char				**ft_split(char const *s, char c);

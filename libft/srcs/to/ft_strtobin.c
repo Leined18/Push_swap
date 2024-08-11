@@ -6,27 +6,49 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:38:40 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/13 17:39:15 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/11 20:55:00 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strtobin(const char *str, char *bin)
+void	copy_bin(char *bin, char *char_bin, size_t *j)
+{
+	size_t	k;
+
+	k = 0;
+	while (k < 8)
+	{
+		bin[*j] = char_bin[k];
+		(*j)++;
+		k++;
+	}
+	free(char_bin);
+}
+
+char	*ft_strtobin(const char *str)
 {
 	size_t	len;
+	char	*bin;
+	char	*char_bin;
 	size_t	i;
 	size_t	j;
 
-	if (!str || !bin)
-		return ;
+	if (!str)
+		return (NULL);
 	len = ft_strlen(str);
-	i = 0;
+	bin = malloc(8 * len + 1);
+	if (!bin)
+		return (NULL);
+	i = -1;
 	j = 0;
-	while (i < len)
+	while (++i < len)
 	{
-		ft_atobin((unsigned char)str[i], bin, &j);
-		i++;
+		char_bin = ft_char2bin((unsigned char)str[i]);
+		if (!char_bin)
+			return (free(bin), NULL);
+		copy_bin(bin, char_bin, &j);
 	}
 	bin[j] = '\0';
+	return (bin);
 }

@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_fib.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 10:25:28 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/11 21:54:02 by danpalac         ###   ########.fr       */
+/*   Created: 2024/08/11 15:37:58 by danpalac          #+#    #+#             */
+/*   Updated: 2024/08/11 21:01:18 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_nbrlen(long n)
+long	ft_fib(long n)
 {
-	int	i;
+	if (n <= 1)
+		return (n);
+	return (ft_fib(n - 1) + ft_fib(n - 2));
+}
 
-	if (n < 0)
+/*int	main(void)
+{
+	long	n;
+	long	i;
+
+	printf("Enter a number: ");
+	scanf("%ld", &n);
+	i = 1;
+	while (i <= n)
 	{
-		n = ft_abs(n);
-		i = 1;
-	}
-	else
-		i = 0;
-	while (n >= 10)
-	{
-		n /= 10;
+		printf("%ld\n", fib_ser(i));
 		i++;
 	}
-	return (i + 1);
-}
-
-int	ft_putnbr(int n)
-{
-	int	nbr_len;
-
-	nbr_len = ft_nbrlen(n);
-	ft_putnbr_fd(n, 1);
-	return (nbr_len);
-}
+}*/

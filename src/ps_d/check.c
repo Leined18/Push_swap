@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 12:04:30 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/11 23:11:40 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ void	check(int argc, char **argv)
 	char	*arg;
 	char	*token;
 	long	num;
-	t_bool	seen[20001];
+	t_bool	seen[200001] = {FALSE};
 
 	i = 0;
-	*seen = false;
 	while (++i < argc)
 	{
 		arg = argv[i];
@@ -30,12 +29,12 @@ void	check(int argc, char **argv)
 		{
 			num = ft_atol(token);
 			if (*token != '\0' && num == 0)
-				ft_error("", 2);
+				ft_error("Error\n", 1);
 			if (num < 0)
 				num += 10000;
-			if (seen[num])
-				ft_error("", 2);
-			seen[num] = true;
+			if (seen[num] == TRUE)
+				ft_error("Error\n", 1);
+			seen[num] = TRUE;
 			token = ft_strtok(NULL, " ");
 		}
 	}
@@ -111,7 +110,7 @@ void	check_range(t_stack *a, int *numbers)
 			|| ft_atoll(ft_itoa(c->data)) < INT_MIN || ft_nbrlen(c->data) > 11)
 		{
 			free(numbers);
-			ft_error("", 2);
+			ft_error("Error\n", 1);
 		}
 		c = c->next;
 	}

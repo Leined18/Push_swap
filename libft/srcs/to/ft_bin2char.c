@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_bintochar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 10:25:28 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/11 21:54:02 by danpalac         ###   ########.fr       */
+/*   Created: 2024/07/09 11:21:33 by danpalac          #+#    #+#             */
+/*   Updated: 2024/08/11 20:52:25 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_nbrlen(long n)
+char	ft_bin2char(const char *bin)
 {
-	int	i;
+	unsigned char	c;
+	int				k;
 
-	if (n < 0)
+	if (!bin)
+		return ('\0');
+	c = 0;
+	k = 0;
+	while (k < 8)
 	{
-		n = ft_abs(n);
-		i = 1;
+		c <<= 1;
+		if (bin[k] == '1')
+			c |= 1;
+		k++;
 	}
-	else
-		i = 0;
-	while (n >= 10)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i + 1);
-}
-
-int	ft_putnbr(int n)
-{
-	int	nbr_len;
-
-	nbr_len = ft_nbrlen(n);
-	ft_putnbr_fd(n, 1);
-	return (nbr_len);
+	return ((char)c);
 }

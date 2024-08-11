@@ -114,7 +114,7 @@ void	ft_load_stack(t_stack **stack, int argc, char **argv)
 			while (token[j])
 			{
 				if (!ft_isdigit(token[j]) && token[j] != '-')
-					ft_error("is not digit", 2);
+					ft_error("Error\n", 2);
 				j++;
 			}
 			num = ft_atoi(token);

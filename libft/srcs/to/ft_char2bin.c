@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_chartobin.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 10:25:28 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/11 21:54:02 by danpalac         ###   ########.fr       */
+/*   Created: 2024/07/09 11:08:54 by danpalac          #+#    #+#             */
+/*   Updated: 2024/08/11 20:52:16 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_nbrlen(long n)
+char	*ft_char2bin(unsigned char c)
 {
-	int	i;
+	char	*ret;
+	int		k;
 
-	if (n < 0)
+	ret = malloc(9);
+	if (!ret)
+		return (NULL);
+	k = 7;
+	while (k >= 0)
 	{
-		n = ft_abs(n);
-		i = 1;
+		if (c & (1 << k))
+			ret[7 - k] = '1';
+		else
+			ret[7 - k] = '0';
+		k--;
 	}
-	else
-		i = 0;
-	while (n >= 10)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i + 1);
-}
-
-int	ft_putnbr(int n)
-{
-	int	nbr_len;
-
-	nbr_len = ft_nbrlen(n);
-	ft_putnbr_fd(n, 1);
-	return (nbr_len);
+	ret[8] = '\0';
+	return (ret);
 }

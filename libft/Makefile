@@ -6,7 +6,7 @@
 #    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 16:56:35 by danpalac          #+#    #+#              #
-#    Updated: 2024/07/25 12:09:35 by danpalac         ###   ########.fr        #
+#    Updated: 2024/08/11 21:56:31 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,16 +42,16 @@ MKDIR 		:= mkdir -p
 #==========SOURCES============================================================#
 
 
-IS_FILES	:= ft_isalpha ft_isalnum ft_isspace ft_isascii ft_isdigit ft_isprint
+IS_FILES	:= ft_isalpha ft_isalnum ft_isascii ft_isdigit ft_isprint ft_isspace
 
 MEM_FILES	:= ft_bzero ft_calloc ft_memchr ft_memcmp ft_memcpy ft_memmove ft_memset\
 			   ft_memrev ft_memccpy ft_memdel
 			   
 PUT_FILES	:= ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd ft_error ft_successful
 
-TO_FILES	:= ft_atoi ft_itoa ft_tolower ft_atoll ft_toupper ft_bintoa ft_atobin ft_bintostr ft_strtobin ft_atol
+TO_FILES	:= ft_atoi ft_itoa ft_atol ft_atoll ft_tolower ft_toupper ft_bin2char ft_char2bin ft_bintostr ft_strtobin
 
-STR_FILES	:= ft_split ft_strchr ft_strdup ft_free_2d ft_striteri ft_strjoin ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp \
+STR_FILES	:= ft_split ft_strchr ft_strdup ft_striteri ft_strjoin ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp \
 			ft_strnstr ft_strrchr ft_strtrim ft_strrev ft_substr ft_strrncmp ft_strtok
 
 LST_FILES	:= ft_lstnew_bonus ft_lstadd_front_bonus ft_lstsize_bonus ft_lstlast_bonus ft_lstadd_back_bonus \
@@ -61,7 +61,7 @@ PRINTF_FILES	:= ft_printf
 
 PRINTF_PUT_FILES := ft_putaddr ft_putbase_fd ft_putchar ft_puthexa ft_putnbr ft_putstr ft_putunsigned
 
-MATH_FILES	:= ft_abs ft_index ft_insort ft_sqrt
+MATH_FILES	:= ft_abs ft_index ft_insort ft_sqrt ft_fib ft_fact 
 
 GET_FILES := get_next_line
 
@@ -110,10 +110,11 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile
 
 $(NAME) : $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
-	@echo "$(GREEN)\n ✓ $(NAME) Compiled \n$(WHITE)"
+	@echo "$(GREEN)\n ✓ Compiled $(NAME)\n$(WHITE)"
 
 clean : 
 	@$(RM) -rf $(OBJ_DIR) a.out
+	@echo "$(RED)\n ✗ Files object libft erased.‼️\n$(WHITE)";
 
 fclean : clean
 	@$(RM) -f $(NAME)

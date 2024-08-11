@@ -77,6 +77,9 @@
     "algorithm": "c",
     "initializer_list": "c",
     "utility": "c",
-    "ft_printf.h": "c"
+    "ft_printf.h": "c",
+    "stdarg.h": "c",
+    "numbers": "c",
+    "ratio": "c"
   }
 }
