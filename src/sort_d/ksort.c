@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 00:36:13 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/11 22:22:57 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/12 09:43:12 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
 	int	range;
 
 	i = 0;
-	range = ft_fact((long)ft_sqrt(length)) * 14 / 10;
+	range = ft_sqrt(length) * 14 / 10;
 	while (stack_a->head)
 	{
 		if (stack_a->head->index <= i)

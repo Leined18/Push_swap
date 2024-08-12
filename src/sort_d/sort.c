@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:03:17 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/11 23:01:06 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/12 11:23:58 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	sort(t_stack *a, t_stack *b, int *num, int length)
 		free(num);
 		ft_error("Error\n", 1);
 	}
-	else if (length == 1)
+	else if (length == 2)
 		swap(a, 'a', i);
 	else if (length == 3)
 		simple_sort(a, length);

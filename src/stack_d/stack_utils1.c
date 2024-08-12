@@ -74,8 +74,8 @@ void	ft_add_front(t_stack **stack, t_stack *new_stack)
 
 t_stack	*ft_new(int num)
 {
-	t_stack		*new_stack;
-	t_node		*new_node;
+	t_stack	*new_stack;
+	t_node	*new_node;
 
 	new_stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_stack)
@@ -96,31 +96,17 @@ t_stack	*ft_new(int num)
 	return (new_stack);
 }
 
-void	ft_load_stack(t_stack **stack, int argc, char **argv)
+void	ft_load_stack(t_stack **stack, int count, int *num)
 {
-	int		i;
-	int		j;
-	int		num;
-	char	*token;
+	int	i;
+	int	number;
 
-	i = 1;
+	i = 0;
 	*stack = NULL;
-	while (i < argc)
+	while (i < count)
 	{
-		token = ft_strtok(argv[i], " ");
-		while (token != NULL)
-		{
-			j = 0;
-			while (token[j])
-			{
-				if (!ft_isdigit(token[j]) && token[j] != '-')
-					ft_error("Error\n", 2);
-				j++;
-			}
-			num = ft_atoi(token);
-			ft_add_back(stack, ft_new(num));
-			token = ft_strtok(NULL, " ");
-		}
+		number = num[i];
+		ft_add_back(stack, ft_new(number));
 		i++;
 	}
 }

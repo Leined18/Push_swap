@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:37:18 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/25 12:11:52 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/12 10:18:45 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,5 @@ int64_t	ft_atoll(const char *str)
 	}
 	while (ft_isdigit(str[i]))
 		out = (out * 10) + (str[i++] - '0');
-	if (str)
-		free((char *)str);
 	return (out * sign);
 }

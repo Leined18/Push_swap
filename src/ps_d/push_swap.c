@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:54:12 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/11 23:11:55 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/12 11:27:21 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,37 +27,25 @@ void	init(t_stack *a, t_stack *b, int *nb, int c)
 	}
 }
 
-int	*get_num(t_stack *a, int size)
-{
-	t_node	*current;
-	int		*n;
-	int		i;
-
-	n = (int *)ft_calloc(sizeof(int), size);
-	if (!n)
-		return (NULL);
-	i = -1;
-	current = a->head;
-	while (current && ++i <= size)
-	{
-		n[i] = current->data;
-		current = current->next;
-	}
-	return (n);
-}
-
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	b;
 	int		*num;
+	int		count;
 
 	if (ac == 1)
 		ft_error("Error\n", 1);
-	check(ac, av);
-	ft_load_stack(&a, ac, av);
-	num = get_num(a, a->size);
-	check_range(a, num);
+	count = check_digits(ac, av);
+	num = parse(ac, av, count);
+	if (count <= 1 || check_dup(count, num))
+	{
+		free(num);
+		if (count == 1)
+			ft_error("", 1);
+		ft_error("Error\n", 1);
+	}
+	ft_load_stack(&a, count, num);
 	init(a, &b, num, a->size);
 	sort(a, &b, num, a->size);
 	free(num);

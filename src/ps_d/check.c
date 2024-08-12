@@ -6,112 +6,81 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/11 23:11:40 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/12 11:15:00 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check(int argc, char **argv)
+static int	count_valid_numbers(const char *str)
 {
-	int		i;
-	char	*arg;
-	char	*token;
-	long	num;
-	t_bool	seen[200001] = {FALSE};
+	int		j;
+	int		count;
+	char	c;
 
-	i = 0;
-	while (++i < argc)
+	j = 0;
+	count = 0;
+	while ((c = str[j]) != '\0')
 	{
-		arg = argv[i];
-		token = ft_strtok(arg, " ");
-		while (token != NULL)
-		{
-			num = ft_atol(token);
-			if (*token != '\0' && num == 0)
-				ft_error("Error\n", 1);
-			if (num < 0)
-				num += 10000;
-			if (seen[num] == TRUE)
-				ft_error("Error\n", 1);
-			seen[num] = TRUE;
-			token = ft_strtok(NULL, " ");
-		}
+		if (ft_isdigit(c) && (str[j + 1] == ' ' || str[j + 1] == '\0'))
+			count++;
+		j++;
 	}
+	return (count);
 }
 
-int	is_sorted(t_stack *stack)
+static int	validate_tokens(const char *str)
 {
-	t_node	*tmp;
+	int		j;
+	char	c;
 
-	tmp = stack->head;
-	while (tmp->next)
+	j = 0;
+	while ((c = str[j]) != '\0')
 	{
-		if (tmp->data > tmp->next->data)
+		if (c == '-' || c == '+')
+		{
+			if (!ft_isdigit(str[j + 1]) || str[j + 1] == '\0' || (j > 0
+					&& ft_isdigit(str[j - 1])))
+				return (0);
+		}
+		else if (!ft_isdigit(c) && !ft_isspace(c))
 			return (0);
-		tmp = tmp->next;
+		j++;
 	}
 	return (1);
-}
-
-int	is_rot_sort(t_stack *stack, int min_s_index)
-{
-	int	a;
-	int	b;
-	int	c;
-
-	(void)min_s_index;
-	a = stack->head->data;
-	b = stack->head->next->data;
-	c = stack->head->next->next->data;
-	if (a < b && b < c)
-		return (1);
-	if (b < c && a > c)
-		return (1);
-	if (c < a && a < b)
-		return (1);
-	return (0);
 }
 
 int	check_digits(int argc, char **argv)
 {
 	int	i;
-	int	j;
 	int	count;
 
 	i = 1;
 	count = 0;
 	while (i < argc)
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
-				&& argv[i][j] != '-')
-				return (-1);
-			if (ft_isdigit(argv[i][j]) && (argv[i][j + 1] == ' ' || argv[i][j
-					+ 1] == '\0'))
-				count += 1;
-			j++;
-		}
+		if (!validate_tokens(argv[i]))
+			ft_error("Error\n", 1);
+		count += count_valid_numbers(argv[i]);
 		i++;
 	}
 	return (count);
 }
 
-void	check_range(t_stack *a, int *numbers)
+void	check_range(char **s_numbers, int *numbers)
 {
-	t_node	*c;
+	int	i;
 
-	c = a->head;
-	while (c)
+	i = 0;
+	while (s_numbers[i])
 	{
-		if (ft_atoll(ft_itoa(c->data)) > INT_MAX
-			|| ft_atoll(ft_itoa(c->data)) < INT_MIN || ft_nbrlen(c->data) > 11)
+		if (ft_atoll(s_numbers[i]) > INT_MAX || ft_atoll(s_numbers[i]) < INT_MIN
+			|| ft_strlen(s_numbers[i]) > 11)
 		{
+			free_2d(s_numbers);
 			free(numbers);
 			ft_error("Error\n", 1);
 		}
-		c = c->next;
+		i++;
 	}
 }

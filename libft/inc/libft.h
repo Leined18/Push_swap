@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:43:02 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/11 22:43:41 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/08/12 10:16:07 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ char				*ft_strrchr(char const *str, int c);
 char				*ft_strtrim(char const *s1, char const *set);
 int					ft_strrncmp(const char *s1, const char *s2, size_t n);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
+void				free_2d(char **arr);
 
 /* ************************************************************************** */
 /*                                   LIST                                     */

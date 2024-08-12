@@ -80,6 +80,8 @@
     "ft_printf.h": "c",
     "stdarg.h": "c",
     "numbers": "c",
-    "ratio": "c"
+    "ratio": "c",
+    "unordered_set": "c",
+    "istream": "c"
   }
 }
