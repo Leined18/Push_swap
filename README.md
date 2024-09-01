@@ -1,3 +1,13 @@
+# Cloning
+
+ ```
+ git clone --recursive git@github.com:Leined18/Push_swap.git
+ cd Minitalk
+ make all
+
+ ```
+
+
 Available operations
 
     sa : Swap the first two elements on stack 'a'.
