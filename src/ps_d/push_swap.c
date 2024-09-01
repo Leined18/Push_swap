@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:54:12 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/12 11:27:21 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/01 22:57:26 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 		ft_error("Error\n", 1);
 	count = check_digits(ac, av);
 	num = parse(ac, av, count);
-	if (count <= 1 || check_dup(count, num))
+	if (count <= 1 || ft_isndup(num, count))
 	{
 		free(num);
 		if (count == 1)

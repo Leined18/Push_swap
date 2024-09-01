@@ -82,6 +82,7 @@
     "numbers": "c",
     "ratio": "c",
     "unordered_set": "c",
-    "istream": "c"
+    "istream": "c",
+    "cstdlib": "c"
   }
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
+#    By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/13 17:21:31 by danpalac          #+#    #+#              #
-#    Updated: 2024/08/12 11:15:58 by danpalac         ###   ########.fr        #
+#    Updated: 2024/09/01 22:58:36 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ INC				:= inc/
 
 #==============================SOURCES============================================#
 
-PS_FILES	:= push_swap check check_dup parse
+PS_FILES	:= push_swap check parse
 OP_FILES	:= op1 op2
 SORT_FILES	:= ksort sort sort_utils
 STACK_FILES	:= stack_utils1 stack_utils2
