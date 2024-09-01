@@ -2,7 +2,7 @@
 
  ```
  git clone --recursive git@github.com:Leined18/Push_swap.git
- cd Minitalk
+ cd Push_swap
  make all
  ```
 
