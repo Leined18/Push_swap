@@ -6,7 +6,7 @@
 #    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/13 17:21:31 by danpalac          #+#    #+#              #
-#    Updated: 2024/09/02 12:27:05 by danpalac         ###   ########.fr        #
+#    Updated: 2024/09/02 14:45:26 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,6 +111,8 @@ fclean: clean
 	@make fclean -sC $(LIBFT_DIR)
 	@echo "$(CYAN)[$(NAME)]:\texec. files $(GREEN) => Cleaned!$(DEF_COLOR)"
 	
+norm:
+	@norminette $(SRC) $(INCLUDE) | grep -v Norme -B1 || true
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:03:17 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/12 11:23:58 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:49:41 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	simple_sort(t_stack *stack, int length)
 
 void	sort(t_stack *a, t_stack *b, int *num, int length)
 {
-	int i;
+	int	i;
 
 	i = TRUE;
 	if (is_sorted(a))

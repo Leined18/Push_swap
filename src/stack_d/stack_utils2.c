@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:46:54 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/19 11:23:05 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:48:58 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	del_stack(t_stack *stack)
 
 void	print_stack(t_stack *a, t_stack *b)
 {
-	t_node *current;
+	t_node	*current;
 
 	if (a)
 	{

@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/02 12:38:20 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:51:13 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ static int	count_valid_numbers(const char *str)
 
 	j = 0;
 	count = 0;
-	while ((c = str[j]) != '\0')
-	{	
+	while (str[j] != '\0')
+	{
+		c = str[j];
 		if (ft_isdigit(c) && (str[j + 1] == ' ' || str[j + 1] == '\0'))
 			count++;
 		j++;
@@ -35,8 +36,9 @@ static int	validate_tokens(const char *str)
 	char	c;
 
 	j = 0;
-	while ((c = str[j]) != '\0')
+	while (str[j] != '\0')
 	{
+		c = str[j];
 		if (c == '-' || c == '+')
 		{
 			if (!ft_isdigit(str[j + 1]) || str[j + 1] == '\0' || (j > 0

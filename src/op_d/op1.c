@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:46:13 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/02 12:19:15 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:51:31 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	rotate(t_stack *stack, char x, t_bool b)
 
 void	reverse_rotate(t_stack *stack, char x, t_bool b)
 {
-	t_node *current;
-	t_node *tmp;
+	t_node	*current;
+	t_node	*tmp;
 
 	if (!stack->head || !stack->head->next || !stack)
 		return ;
