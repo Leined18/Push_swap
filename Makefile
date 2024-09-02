@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+         #
+#    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/13 17:21:31 by danpalac          #+#    #+#              #
-#    Updated: 2024/09/01 22:58:36 by danpalac         ###   ########.fr        #
+#    Updated: 2024/09/02 12:27:05 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,8 +95,8 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c Makefile
 
 $(NAME): $(LIBFT) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
-	@echo "\n$(GREEN) ✓ $(NAME) compiled!$(DEF_COLOR)"
-	@echo "$(BOLD_CYAN)\n------------\n| Done! 👌 |\n------------$(DEF_COLOR)"
+	@echo "$(BOLD_CYAN)[$(BOLD_PURPLE)$(NAME)$(DEF_COLOR)$(BOLD_CYAN)] compiled!$(DEF_COLOR)"
+	@echo "$(BOLD_CYAN)------------\n| Done! 👌 |\n------------$(DEF_COLOR)"
 
 $(LIBFT):
 	@make -sC $(LIBFT_DIR)
@@ -104,11 +104,13 @@ $(LIBFT):
 clean:
 	@$(RM) -rf $(OBJS_DIR)
 	@make clean -sC $(LIBFT_DIR)
+	@echo "$(CYAN)[$(NAME)]:\tobject files $(GREEN) => Cleaned!$(DEF_COLOR)"
 
 fclean: clean
 	@$(RM) -rf $(NAME)
 	@make fclean -sC $(LIBFT_DIR)
-	@echo "$(GREEN)$(NAME) $(YELLOW) cleaned$(DEF_COLOR)"
+	@echo "$(CYAN)[$(NAME)]:\texec. files $(GREEN) => Cleaned!$(DEF_COLOR)"
+	
 
 re: fclean all
 

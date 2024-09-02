@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/12 11:15:00 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/02 12:38:20 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	count_valid_numbers(const char *str)
 	j = 0;
 	count = 0;
 	while ((c = str[j]) != '\0')
-	{
+	{	
 		if (ft_isdigit(c) && (str[j + 1] == ' ' || str[j + 1] == '\0'))
 			count++;
 		j++;
