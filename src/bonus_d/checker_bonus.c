@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 23:46:20 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/18 06:31:41 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/18 08:17:05 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static int	instructions(t_stack *a, t_stack *b, char *line)
 		reverse_rotate(b, 'b', FALSE);
 	else if (!ft_strncmp(line, "rrr", 5) || !ft_strncmp(line, "rrr\n", 5))
 		reverse_rotate_both(a, b, FALSE);
-    else
-        return (1);
-    return (0);
+	else
+		return (1);
+	return (0);
 }
 
 static void	read_instructions(t_stack *a, t_stack *b)
@@ -51,7 +51,7 @@ static void	read_instructions(t_stack *a, t_stack *b)
 		if (line == NULL)
 			break ;
 		if (instructions(a, b, line))
-            ft_error("\033[0mError\n", 1);
+			ft_error("\033[0mError\n", 1);
 		free(line);
 	}
 }
