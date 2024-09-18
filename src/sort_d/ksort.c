@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 00:36:13 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/12 09:43:12 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/18 01:19:54 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
 			push(stack_b, stack_a, 'b', TRUE);
 			i++;
 			if (!(stack_a->head->index <= i + range))
-				rotate_both(stack_a, stack_b);
+				rotate_both(stack_a, stack_b, TRUE);
 			else
 				rotate(stack_b, 'b', TRUE);
 		}

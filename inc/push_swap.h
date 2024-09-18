@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:53:59 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/02 14:54:00 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/18 01:06:14 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,10 @@ t_bool				check_dup(int count, int *num);
 
 // operations
 
-void				reverse_rotate_both(t_stack *stack_a, t_stack *stack_b);
-void				swap_both(t_stack *stack1, t_stack *stack2);
-void				rotate_both(t_stack *stack_a, t_stack *stack_b);
+void				reverse_rotate_both(t_stack *stack_a, t_stack *stack_b,
+						t_bool p);
+void				swap_both(t_stack *stack1, t_stack *stack2, t_bool p);
+void				rotate_both(t_stack *stack_a, t_stack *stack_b, t_bool p);
 void				push(t_stack *stack1, t_stack *stack2, char x, t_bool b);
 void				push_stack(t_stack *stack1, t_stack *stack2);
 void				swap(t_stack *stack, char x, t_bool b);

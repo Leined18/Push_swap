@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:57:19 by danpalac          #+#    #+#             */
-/*   Updated: 2024/07/17 21:09:22 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/18 01:04:51 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,26 @@ void	push_stack(t_stack *stack1, t_stack *stack2)
 	stack2->size--;
 }
 
-void	rotate_both(t_stack *stack_a, t_stack *stack_b)
+void	rotate_both(t_stack *stack_a, t_stack *stack_b, t_bool p)
 {
 	rotate(stack_a, 'a', FALSE);
 	rotate(stack_b, 'b', FALSE);
-	write(1, "rr\n", 3);
+	if (p)
+		write(1, "rr\n", 3);
 }
 
-void	swap_both(t_stack *stack1, t_stack *stack2)
+void	swap_both(t_stack *stack1, t_stack *stack2, t_bool p)
 {
 	rotate(stack1, 'a', FALSE);
 	rotate(stack2, 'b', FALSE);
-	write(1, "ss\n", 3);
+	if (p)
+		write(1, "ss\n", 3);
 }
 
-void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b)
+void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b, t_bool p)
 {
 	reverse_rotate(stack_a, 'a', FALSE);
 	reverse_rotate(stack_b, 'b', FALSE);
-	write(1, "rrr\n", 3);
+	if (p)
+		write(1, "rrr\n", 3);
 }
