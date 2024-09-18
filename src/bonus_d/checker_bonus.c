@@ -6,13 +6,13 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 23:46:20 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/18 02:25:40 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/18 06:31:41 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	instructions(t_stack *a, t_stack *b, char *line)
+static int	instructions(t_stack *a, t_stack *b, char *line)
 {
 	if (!ft_strncmp(line, "sa", 5) || !ft_strncmp(line, "sa\n", 5))
 		swap(a, 'a', FALSE);
@@ -36,6 +36,9 @@ static void	instructions(t_stack *a, t_stack *b, char *line)
 		reverse_rotate(b, 'b', FALSE);
 	else if (!ft_strncmp(line, "rrr", 5) || !ft_strncmp(line, "rrr\n", 5))
 		reverse_rotate_both(a, b, FALSE);
+    else
+        return (1);
+    return (0);
 }
 
 static void	read_instructions(t_stack *a, t_stack *b)
@@ -47,7 +50,8 @@ static void	read_instructions(t_stack *a, t_stack *b)
 		line = get_next_line(0);
 		if (line == NULL)
 			break ;
-		instructions(a, b, line);
+		if (instructions(a, b, line))
+            ft_error("\033[0mError\n", 1);
 		free(line);
 	}
 }
@@ -62,47 +66,27 @@ static void	checker(t_stack *a, t_stack *b)
 	free_stacks(a, b);
 }
 
-static void	init_stacks(t_stack **a, t_stack **b, int count, int *num, int c)
-{
-	t_node	*tmp;
-
-	*a = NULL;
-	*b = NULL;
-	if (count <= 1 || ft_isndup(num, count))
-	{
-		free(num);
-		if (count == 1)
-			ft_error("", 1);
-		ft_error("Error\n", 1);
-	}
-	ft_load_stack(a, count, num);
-	*b = (t_stack *)malloc(sizeof(t_stack));
-	if (*b == NULL)
-		ft_error("Error\n", 1);
-	(*b)->head = NULL;
-	(*b)->size = 0;
-	ins_sort(num, c);
-	tmp = (*a)->head;
-	while (tmp)
-	{
-		tmp->index = ft_index(tmp->data, num);
-		tmp = tmp->next;
-	}
-	free(num);
-}
-
 int	main(int ac, char **av)
 {
 	t_stack	*a;
-	t_stack	*b;
+	t_stack	b;
 	int		*num;
 	int		count;
 
 	if (ac == 1)
-		ft_error("Error\n", 1);
+		return (0);
 	count = check_digits(ac, av);
 	num = parse(ac, av, count);
-	init_stacks(&a, &b, count, num, a->size);
-	checker(a, b);
+	if (count < 1 || ft_isndup(num, count))
+	{
+		free(num);
+		if (count == 1)
+			ft_error("", 1);
+		ft_error("\033[0mError\n", 1);
+	}
+	ft_load_stack(&a, count, num);
+	b.head = NULL;
+	b.size = 0;
+	checker(a, &b);
 	return (0);
 }
