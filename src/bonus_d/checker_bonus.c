@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 23:46:20 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/20 12:25:45 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:45:03 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ static void	read_instructions(t_stack *a, t_stack *b)
 	{
 		line = get_next_line(0);
 		if (line == NULL || line[0] == '\n')
-        {
-            if (line)
-                free(line);
-            break ;
-        }	
+		{
+			if (line)
+				free(line);
+			break ;
+		}
 		if (instructions(a, b, line))
 			ft_error("\033[0mError\n", 1);
 		free(line);
