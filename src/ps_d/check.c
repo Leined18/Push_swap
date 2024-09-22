@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/22 15:45:34 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:57:27 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	validate_tokens(const char *str)
 	return (1);
 }
 
-static int	check_digits(int argc, char **argv)
+int	check_digits(int argc, char **argv)
 {
 	int	i;
 	int	count;
