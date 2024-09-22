@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/18 06:24:16 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:45:34 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	validate_tokens(const char *str)
 	return (1);
 }
 
-int	check_digits(int argc, char **argv)
+static int	check_digits(int argc, char **argv)
 {
 	int	i;
 	int	count;
@@ -69,6 +69,27 @@ int	check_digits(int argc, char **argv)
 	return (count);
 }
 
+static int	ft_check_len(char *numbers)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (numbers[i] == '+' || numbers[i] == '-')
+		i++;
+	while (numbers[i] == '0')
+		i++;
+	while (numbers[i])
+	{
+		i++;
+		count++;
+	}
+	if (count >= 11)
+		return (-1);
+	return (count);
+}
+
 void	check_range(char **s_numbers, int *numbers)
 {
 	int	i;
@@ -77,7 +98,7 @@ void	check_range(char **s_numbers, int *numbers)
 	while (s_numbers[i])
 	{
 		if (ft_atoll(s_numbers[i]) > INT_MAX || ft_atoll(s_numbers[i]) < INT_MIN
-			|| ft_strlen(s_numbers[i]) > 11)
+			|| ft_check_len(s_numbers[i]) > 11)
 		{
 			free_2d(s_numbers);
 			free(numbers);
