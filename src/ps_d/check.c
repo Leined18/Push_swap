@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/22 15:57:27 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/30 11:37:42 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,14 @@ static int	count_valid_numbers(const char *str)
 	while (str[j] != '\0')
 	{
 		c = str[j];
-		if (ft_isdigit(c) && (str[j + 1] == ' ' || str[j + 1] == '\0'))
+		if (ft_isdigit(c))
+		{
 			count++;
-		j++;
+			while (ft_isdigit(str[j]))
+				j++;
+		}
+		else
+			j++;
 	}
 	return (count);
 }

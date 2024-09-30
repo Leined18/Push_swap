@@ -6,11 +6,30 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 09:56:52 by danpalac          #+#    #+#             */
-/*   Updated: 2024/08/12 10:48:05 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/30 11:54:42 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	process_numbers(int count, int *j, char **s_numbers, int *numbers)
+{
+	int	k;
+
+	k = 0;
+	while (s_numbers[k])
+	{
+		if (count <= 1)
+			ft_error("\033[0mError\n", 1);
+		if (*j >= count)
+		{
+			free_2d(s_numbers);
+			free(numbers);
+			ft_error("\033[0mError\n", 1);
+		}
+		numbers[(*j)++] = ft_atoi(s_numbers[k++]);
+	}
+}
 
 int	*parse(int argc, char **argv, int count)
 {
@@ -18,7 +37,6 @@ int	*parse(int argc, char **argv, int count)
 	int		*numbers;
 	int		i;
 	int		j;
-	int		k;
 
 	numbers = (int *)malloc(sizeof(int) * count);
 	if (!numbers)
@@ -31,9 +49,7 @@ int	*parse(int argc, char **argv, int count)
 		if (!s_numbers)
 			ft_error("", 1);
 		check_range(s_numbers, numbers);
-		k = 0;
-		while (s_numbers[k])
-			numbers[j++] = ft_atoi(s_numbers[k++]);
+		process_numbers(count, &j, s_numbers, numbers);
 		free_2d(s_numbers);
 	}
 	return (numbers);
