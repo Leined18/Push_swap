@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:54:12 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/30 11:44:33 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/30 20:04:54 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	int		count;
 
 	if (ac == 1)
-		ft_error("\033[0mError\n", 1);
+		ft_error("Error\n", 1);
 	count = check_digits(ac, av);
 	num = parse(ac, av, count);
 	if (count <= 1 || ft_isndup(num, count))
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 		free(num);
 		if (count == 1)
 			ft_error("", 1);
-		ft_error("\033[0mError\n", 1);
+		ft_error("Error\n", 1);
 	}
 	ft_load_stack(&a, count, num);
 	init(a, &b, num, a->size);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+         #
+#    By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/18 00:46:39 by danpalac          #+#    #+#              #
-#    Updated: 2024/09/18 06:33:25 by danpalac         ###   ########.fr        #
+#    Updated: 2024/09/30 19:50:07 by danpalac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

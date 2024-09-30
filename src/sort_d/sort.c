@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:03:17 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/20 11:39:15 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/30 20:03:40 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	sort(t_stack *a, t_stack *b, int *num, int length)
 	{
 		free_stacks(a, b);
 		free(num);
-		ft_error("\033[0mError\n", 1);
+		ft_error("Error\n", 1);
 	}
 	else if (length == 2)
 		swap(a, 'a', i);
@@ -92,5 +92,5 @@ void	sort(t_stack *a, t_stack *b, int *num, int length)
 		k_sort2(a, b, length);
 	}
 	else
-		ft_error("\033[0m", 1);
+		ft_error("", 1);
 }

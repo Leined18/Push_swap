@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 09:56:52 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/30 11:54:42 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/30 20:02:52 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static void	process_numbers(int count, int *j, char **s_numbers, int *numbers)
 	while (s_numbers[k])
 	{
 		if (count <= 1)
-			ft_error("\033[0mError\n", 1);
+			ft_error("Error\n", 1);
 		if (*j >= count)
 		{
 			free_2d(s_numbers);
 			free(numbers);
-			ft_error("\033[0mError\n", 1);
+			ft_error("Error\n", 1);
 		}
 		numbers[(*j)++] = ft_atoi(s_numbers[k++]);
 	}

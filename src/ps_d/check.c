@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:05:43 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/30 11:37:42 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/09/30 20:02:39 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	check_digits(int argc, char **argv)
 	while (i < argc)
 	{
 		if (!validate_tokens(argv[i]))
-			ft_error("\033[0mError\n", 1);
+			ft_error("Error\n", 1);
 		count += count_valid_numbers(argv[i]);
 		i++;
 	}
@@ -107,7 +107,7 @@ void	check_range(char **s_numbers, int *numbers)
 		{
 			free_2d(s_numbers);
 			free(numbers);
-			ft_error("\033[0mError\n", 1);
+			ft_error("Error\n", 1);
 		}
 		i++;
 	}
