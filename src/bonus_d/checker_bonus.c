@@ -6,7 +6,7 @@
 /*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 23:46:20 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/20 13:45:03 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/10/01 12:30:29 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	read_instructions(t_stack *a, t_stack *b)
 			break ;
 		}
 		if (instructions(a, b, line))
-			ft_error("\033[0mError\n", 1);
+			ft_error("Error\n", 1);
 		free(line);
 	}
 }
@@ -86,7 +86,7 @@ int	main(int ac, char **av)
 		free(num);
 		if (count == 1)
 			ft_error("", 1);
-		ft_error("\033[0mError\n", 1);
+		ft_error("Error\n", 1);
 	}
 	ft_load_stack(&a, count, num);
 	b.head = NULL;

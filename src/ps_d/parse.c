@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danpalac <danpalac@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: danpalac <danpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 09:56:52 by danpalac          #+#    #+#             */
-/*   Updated: 2024/09/30 20:02:52 by danpalac         ###   ########.fr       */
+/*   Updated: 2024/10/01 12:28:43 by danpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static void	process_numbers(int count, int *j, char **s_numbers, int *numbers)
 	k = 0;
 	while (s_numbers[k])
 	{
-		if (count <= 1)
-			ft_error("Error\n", 1);
 		if (*j >= count)
 		{
 			free_2d(s_numbers);
