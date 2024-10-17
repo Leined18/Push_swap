@@ -52,15 +52,6 @@ Example Commands:
 
 ---
 
-## Data Structures
-
-| **Structure**                                  | **Description**                                    |
-| -------------------------------------------------- | -------------------------------------------------- |
-| `t_stack`                                      | Structure representing a stack, including the value and a pointer to the next element. |
-| `t_command`                                    | Structure representing a command to execute, including the operation type and arguments. |
-
----
-
 ## Notes
 - The program only accepts integers as input and will handle invalid inputs with appropriate error messages.
 - Ensure that the operations are executed in a way that follows the sorting logic to achieve the desired output.
