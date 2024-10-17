@@ -41,7 +41,8 @@ Key Concepts:
 
 | **Command**                                     | **Description**                                    |
 | -------------------------------------------------- | -------------------------------------------------- |
-| `ARG="numbers with spaces"; ./push_swap $ARG`  | Executes the Push_swap program with a list of numbers. |
+| `ARG="numbers with spaces"; ./push_swap $ARG`      | Executes the Push_swap program with a list of numbers. |
+| `./push_swap NUMBER1 NUMBER2 NUMBER3 NUMBER4 ...`  | Executes the Push_swap program with a list of numbers as parametters. |
 
 Example Commands:
 | **Command**                                     | **Description**                                    |
