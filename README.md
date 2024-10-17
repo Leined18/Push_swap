@@ -61,38 +61,6 @@ Example Commands:
 
 ---
 
-## Functions Overview
-
-| **Function**                                   | **Description**                                    |
-| -------------------------------------------------- | -------------------------------------------------- |
-| `init_stack`                                   | Initializes a new stack and allocates memory.     |
-| `push`                                         | Adds an element to the stack.                      |
-| `pop`                                          | Removes and returns the top element from the stack.|
-| `swap`                                         | Swaps the top two elements of a stack.            |
-| `rotate`                                       | Moves all elements of the stack up by one position.|
-| `reverse_rotate`                               | Moves all elements of the stack down by one position.|
-| `sort_stack`                                   | Sorts the elements in the stack using an efficient sorting algorithm. |
-
----
-
-## Error Handling
-
-| **Function**                                   | **Description**                                    |
-| -------------------------------------------------- | -------------------------------------------------- |
-| `error_exit`                                   | Safely handles errors and exits the program.      |
-| `check_duplicates`                             | Checks for duplicate values in the input.         |
-
----
-
-## Testing and Validation
-
-| **Task**                                       | **Description**                                    |
-| -------------------------------------------------- | -------------------------------------------------- |
-| `test_push_swap`                               | Tests the functionality of stack operations.      |
-| `validate_args`                                | Validates that input arguments are integers.      |
-
----
-
 ## Notes
 - The program only accepts integers as input and will handle invalid inputs with appropriate error messages.
 - Ensure that the operations are executed in a way that follows the sorting logic to achieve the desired output.
